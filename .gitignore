@@ -43,3 +43,6 @@ frontend/.vite/
 # -------------------------
 !.gitignore
 !README.md
+
+# ignore .md files
+*.md

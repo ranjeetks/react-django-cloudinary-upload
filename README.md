@@ -1,4 +1,4 @@
-# 📤 React + Django File Upload (Cloudinary) — FREE Micro-Demo
+# 📤 React + Django File Upload (Cloudinary)
 
 ![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
 ![Django](https://img.shields.io/badge/Django-092E20?logo=django&logoColor=white)
@@ -11,7 +11,7 @@ This version focuses strictly on the **core upload + preview logic**, keeping ev
 
 ---
 
-## ⭐ Features (FREE Version)
+## ⭐ Features
 
 - Upload an image from the frontend  
 - Show instant **local preview** before upload  
@@ -68,9 +68,10 @@ pip install -r requirements.txt
 
 ### 2️⃣ Add Cloudinary config (settings.py)
 ```python
-CLOUDINARY_CLOUD_NAME = "your-cloud"
-CLOUDINARY_API_KEY = "your-key"
-CLOUDINARY_API_SECRET = "your-secret"
+CLOUDINARY_CLOUD_NAME = os.getenv("CLOUDINARY_CLOUD_NAME")
+CLOUDINARY_API_KEY = os.getenv("CLOUDINARY_API_KEY")
+CLOUDINARY_API_SECRET = os.getenv("CLOUDINARY_API_SECRET")
+
 ```
 
 ### 3️⃣ Run migrations
@@ -135,7 +136,7 @@ file: <image>
 
 ---
 
-# 🎁 What the FREE Version Includes
+# 🎁 Key Features Included
 
 ✔ Minimal Django API  
 ✔ Cloudinary upload logic  
@@ -143,12 +144,6 @@ file: <image>
 ✔ Local preview  
 ✔ Lightweight Tailwind UI  
 ✔ Fully working end-to-end example  
-
----
-
-# 🚀 Future Plans (PRO Version)
-
-A **PRO version is planned**, which will include additional UI/UX improvements and optional extended features.
 
 ---
 ## 👨‍💻 Author
