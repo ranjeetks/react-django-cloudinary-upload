@@ -1,0 +1,45 @@
+# -------------------------
+# Global ignore
+# -------------------------
+*.log
+.DS_Store
+.env
+*.sqlite3
+
+# -------------------------
+# Python (Django)
+# -------------------------
+**/__pycache__/
+**/*.py[cod]
+**/*.pyc
+**/.pytest_cache/
+**/.mypy_cache/
+
+# Virtual environment
+venv/
+env/
+
+# Django migrations auto files
+**/migrations/**/*
+!**/migrations/__init__.py
+
+
+# -------------------------
+# Node / React / Vite
+# -------------------------
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# -------------------------
+# IDE / Editor
+# -------------------------
+.vscode/
+.idea/
+*.swp
+
+# -------------------------
+# Allow important files
+# -------------------------
+!.gitignore
+!README.md
