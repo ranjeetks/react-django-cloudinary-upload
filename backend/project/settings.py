@@ -26,9 +26,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY=os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -165,10 +162,10 @@ cloudinary.config(
     secure=True
 )
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:5173",
+#     "http://127.0.0.1:5173",
+# ]
 CORS_ALLOW_METHODS = [
     "GET",
     "POST",
@@ -187,3 +184,16 @@ CORS_ALLOW_HEADERS = [
     "x-requested-with",
 ]
 CORS_ALLOW_CREDENTIALS = True
+
+def env_list(var_name):
+    value = os.getenv(var_name, "")
+    return [v.strip() for v in value.split(",") if v.strip()]
+
+# ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
+# CORS_ALLOWED_ORIGINS = os.getenv("CORS_ALLOWED_ORIGINS", "").split(",")
+# CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+
+ALLOWED_HOSTS = env_list("ALLOWED_HOSTS")
+DEBUG = os.getenv("DEBUG", "False") == "True"
+CORS_ALLOWED_ORIGINS = env_list("CORS_ALLOWED_ORIGINS")
+CSRF_TRUSTED_ORIGINS = env_list("CSRF_TRUSTED_ORIGINS")
