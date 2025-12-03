@@ -1,5 +1,10 @@
 # 📤 React + Django File Upload (Cloudinary)
 
+![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
+![Django](https://img.shields.io/badge/Django-092E20?logo=django&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
+![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?logo=cloudinary&logoColor=white)
+
 A minimal full-stack micro-demo showing how to upload an image to **Cloudinary** using a simple **Django REST API** and preview it in a **React (Vite + Tailwind)** frontend.
 
 This **version** includes the core upload + preview flow with **no database**, making it lightweight and perfect for beginners.
