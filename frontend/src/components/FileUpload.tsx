@@ -33,30 +33,37 @@ export default function FileUpload() {
   };
 
   const handleUpload = async () => {
-    if (!selectedFile) {
-      setMessage("Please select a file first.");
-      return;
+  if (!selectedFile) {
+    setMessage("Please select a file first.");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("file", selectedFile);
+
+  try {
+    const baseURL = import.meta.env.VITE_API_URL;
+
+    const response = await fetch(baseURL + "/api/upload/", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error("Server error");
     }
 
-    const formData = new FormData();
-    formData.append("file", selectedFile);
+    const data = await response.json();
 
-    try {
-      const baseURL= import.meta.env.VITE_API_URL
-      const response = await fetch(baseURL+"/api/upload/", {
-        method: "POST",
-        body: formData,
-      });
+    setProgress(100);
+    setUploadedUrl(data.url);
+    setMessage("Upload successful!");
+  } catch (err) {
+    console.error(err);
+    setMessage("Upload failed.");
+  }
+};
 
-      setProgress(100);
-
-      const data = await response.json();
-      setUploadedUrl(data.secure_url);
-      setMessage("Upload successful!");
-    } catch {
-      setMessage("Upload failed.");
-    }
-  };
 
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray-50 p-4">
